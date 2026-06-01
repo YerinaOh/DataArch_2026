@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6b8887b43118b23355cc2f6677d19032 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    
+                    <style>
+                        .foliumpopup {
+                            margin: auto;
+                        }
+                       .foliumpopup table{
+                            margin: auto;
+                        }
+                        .foliumpopup tr{
+                            text-align: left;
+                        }
+                        .foliumpopup th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_6b8887b43118b23355cc2f6677d19032" ></div>
+        
+    
+            <div style="
+                position: fixed;
+                top: 12px;
+                right: 12px;
+                z-index: 9999;
+                background: white;
+                border: 2px solid #757575;
+                border-radius: 6px;
+                padding: 10px 12px;
+                font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+                font-size: 13px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            ">
+                <div style="font-weight:bold;margin-bottom:8px;">정비 유형 범례</div>
+                <div style="margin-bottom:4px;"><span style="display:inline-block;width:14px;height:14px;background:#D32F2F;margin-right:6px;border:1px solid #333;"></span>정비사각지대</div><div style="margin-bottom:4px;"><span style="display:inline-block;width:14px;height:14px;background:#F57C00;margin-right:6px;border:1px solid #333;"></span>정비중 지역</div><div style="margin-bottom:4px;"><span style="display:inline-block;width:14px;height:14px;background:#FBC02D;margin-right:6px;border:1px solid #333;"></span>잠재쇠퇴지역</div><div style="margin-bottom:4px;"><span style="display:inline-block;width:14px;height:14px;background:#388E3C;margin-right:6px;border:1px solid #333;"></span>양호지역</div>
+            </div>
+            
+
+<script>
+    
+    
+            var map_6b8887b43118b23355cc2f6677d19032 = L.map(
+                "map_6b8887b43118b23355cc2f6677d19032",
+                {
+                    center: [37.579, 126.9365],
+                    crs: L.CRS.EPSG3857, "zoom": 13, "zoomControl": true, "preferCanvas": false
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0eda8e14df6f8b690e7a40218b9e4abf = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_0eda8e14df6f8b690e7a40218b9e4abf.addTo(map_6b8887b43118b23355cc2f6677d19032);
+        
+    
+        function geo_json_4cb5ac954144fd443f068a0763d4e9b2_styler(feature) {
+            switch(feature.properties.dong) {
+                case "\ucda9\uc815\ub85c2\uac00\ub3d9": case "\ucc9c\uc5f0\ub3d9": case "\uc2e0\ucd0c\ub3d9": case "\ud64d\uc81c1\ub3d9": case "\ud64d\uc81c2\ub3d9": case "\ud64d\uc81c3\ub3d9": case "\ud64d\uc7401\ub3d9": case "\ud64d\uc7402\ub3d9": 
+                    return {"color": "#424242", "fillColor": "#F57C00", "fillOpacity": 0.65, "weight": 1.5};
+                case "\uc5f0\ud76c\ub3d9": 
+                    return {"color": "#424242", "fillColor": "#FBC02D", "fillOpacity": 0.65, "weight": 1.5};
+                case "\ub0a8\uac00\uc88c1\ub3d9": case "\ub0a8\uac00\uc88c2\ub3d9": case "\ubd81\uac00\uc88c1\ub3d9": case "\ubd81\uac00\uc88c2\ub3d9": 
+                    return {"color": "#424242", "fillColor": "#388E3C", "fillOpacity": 0.65, "weight": 1.5};
+                default:
+                    return {"color": "#424242", "fillColor": "#D32F2F", "fillOpacity": 0.65, "weight": 1.5};
+            }
+        }
+        function geo_json_4cb5ac954144fd443f068a0763d4e9b2_highlighter(feature) {
+            switch(feature.properties.dong) {
+                default:
+                    return {"color": "#212121", "fillOpacity": 0.85, "weight": 3};
+            }
+        }
+
+        function geo_json_4cb5ac954144fd443f068a0763d4e9b2_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_4cb5ac954144fd443f068a0763d4e9b2.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_4cb5ac954144fd443f068a0763d4e9b2_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_4cb5ac954144fd443f068a0763d4e9b2 = L.geoJson(null, {
+                onEachFeature: geo_json_4cb5ac954144fd443f068a0763d4e9b2_onEachFeature,
+            
+                style: geo_json_4cb5ac954144fd443f068a0763d4e9b2_styler
+        });
+
+        function geo_json_4cb5ac954144fd443f068a0763d4e9b2_add (data) {
+            geo_json_4cb5ac954144fd443f068a0763d4e9b2
+                .addData(data);
+        }
+            geo_json_4cb5ac954144fd443f068a0763d4e9b2_add({"features": [{"geometry": {"coordinates": [[[126.9575, 37.5565], [126.9715, 37.5565], [126.9715, 37.570499999999996], [126.9575, 37.570499999999996], [126.9575, 37.5565]]], "type": "Polygon"}, "properties": {"adm_nm": "\ucda9\uc815\ub85c2\uac00\ub3d9", "decline_score": 2.2031, "development_score": 5.0, "dong": "\ucda9\uc815\ub85c2\uac00\ub3d9", "obsolescence_score": 3.5238, "region_type": "\uc815\ube44\uc911 \uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.961, 37.5595], [126.97500000000001, 37.5595], [126.97500000000001, 37.573499999999996], [126.961, 37.573499999999996], [126.961, 37.5595]]], "type": "Polygon"}, "properties": {"adm_nm": "\ucda9\uc815\ub85c3\uac00\ub3d9", "decline_score": 3.6224, "development_score": 0.0, "dong": "\ucda9\uc815\ub85c3\uac00\ub3d9", "obsolescence_score": 5.0, "region_type": "\uc815\ube44\uc0ac\uac01\uc9c0\ub300", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.96, 37.564], [126.974, 37.564], [126.974, 37.577999999999996], [126.96, 37.577999999999996], [126.96, 37.564]]], "type": "Polygon"}, "properties": {"adm_nm": "\ucc9c\uc5f0\ub3d9", "decline_score": 1.2484, "development_score": 4.2, "dong": "\ucc9c\uc5f0\ub3d9", "obsolescence_score": 2.214, "region_type": "\uc815\ube44\uc911 \uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.929, 37.548500000000004], [126.94300000000001, 37.548500000000004], [126.94300000000001, 37.5625], [126.929, 37.5625], [126.929, 37.548500000000004]]], "type": "Polygon"}, "properties": {"adm_nm": "\uc2e0\ucd0c\ub3d9", "decline_score": 2.8869, "development_score": 5.0, "dong": "\uc2e0\ucd0c\ub3d9", "obsolescence_score": 2.8244, "region_type": "\uc815\ube44\uc911 \uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.92399999999999, 37.565000000000005], [126.938, 37.565000000000005], [126.938, 37.579], [126.92399999999999, 37.579], [126.92399999999999, 37.565000000000005]]], "type": "Polygon"}, "properties": {"adm_nm": "\uc5f0\ud76c\ub3d9", "decline_score": 3.8478, "development_score": 4.2, "dong": "\uc5f0\ud76c\ub3d9", "obsolescence_score": 1.7113, "region_type": "\uc7a0\uc7ac\uc1e0\ud1f4\uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.942, 37.581500000000005], [126.956, 37.581500000000005], [126.956, 37.5955], [126.942, 37.5955], [126.942, 37.581500000000005]]], "type": "Polygon"}, "properties": {"adm_nm": "\ud64d\uc81c1\ub3d9", "decline_score": 2.3625, "development_score": 5.0, "dong": "\ud64d\uc81c1\ub3d9", "obsolescence_score": 2.708, "region_type": "\uc815\ube44\uc911 \uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.94449999999999, 37.5775], [126.9585, 37.5775], [126.9585, 37.591499999999996], [126.94449999999999, 37.591499999999996], [126.94449999999999, 37.5775]]], "type": "Polygon"}, "properties": {"adm_nm": "\ud64d\uc81c2\ub3d9", "decline_score": 2.469, "development_score": 5.0, "dong": "\ud64d\uc81c2\ub3d9", "obsolescence_score": 2.9175, "region_type": "\uc815\ube44\uc911 \uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.94, 37.5735], [126.95400000000001, 37.5735], [126.95400000000001, 37.5875], [126.94, 37.5875], [126.94, 37.5735]]], "type": "Polygon"}, "properties": {"adm_nm": "\ud64d\uc81c3\ub3d9", "decline_score": 2.469, "development_score": 5.0, "dong": "\ud64d\uc81c3\ub3d9", "obsolescence_score": 2.9175, "region_type": "\uc815\ube44\uc911 \uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.93299999999999, 37.585], [126.947, 37.585], [126.947, 37.599], [126.93299999999999, 37.599], [126.93299999999999, 37.585]]], "type": "Polygon"}, "properties": {"adm_nm": "\ud64d\uc7401\ub3d9", "decline_score": 1.9741, "development_score": 5.0, "dong": "\ud64d\uc7401\ub3d9", "obsolescence_score": 2.3818, "region_type": "\uc815\ube44\uc911 \uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.928, 37.5885], [126.94200000000001, 37.5885], [126.94200000000001, 37.6025], [126.928, 37.6025], [126.928, 37.5885]]], "type": "Polygon"}, "properties": {"adm_nm": "\ud64d\uc7402\ub3d9", "decline_score": 1.9741, "development_score": 5.0, "dong": "\ud64d\uc7402\ub3d9", "obsolescence_score": 2.3818, "region_type": "\uc815\ube44\uc911 \uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.911, 37.5685], [126.92500000000001, 37.5685], [126.92500000000001, 37.582499999999996], [126.911, 37.582499999999996], [126.911, 37.5685]]], "type": "Polygon"}, "properties": {"adm_nm": "\ub0a8\uac00\uc88c1\ub3d9", "decline_score": 0.2351, "development_score": 0.0, "dong": "\ub0a8\uac00\uc88c1\ub3d9", "obsolescence_score": 0.0, "region_type": "\uc591\ud638\uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.905, 37.563500000000005], [126.91900000000001, 37.563500000000005], [126.91900000000001, 37.5775], [126.905, 37.5775], [126.905, 37.563500000000005]]], "type": "Polygon"}, "properties": {"adm_nm": "\ub0a8\uac00\uc88c2\ub3d9", "decline_score": 0.2351, "development_score": 0.0, "dong": "\ub0a8\uac00\uc88c2\ub3d9", "obsolescence_score": 0.0, "region_type": "\uc591\ud638\uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.901, 37.575], [126.915, 37.575], [126.915, 37.589], [126.901, 37.589], [126.901, 37.575]]], "type": "Polygon"}, "properties": {"adm_nm": "\ubd81\uac00\uc88c1\ub3d9", "decline_score": 0.3939, "development_score": 0.0, "dong": "\ubd81\uac00\uc88c1\ub3d9", "obsolescence_score": 0.5092, "region_type": "\uc591\ud638\uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}, {"geometry": {"coordinates": [[[126.896, 37.57], [126.91000000000001, 37.57], [126.91000000000001, 37.583999999999996], [126.896, 37.583999999999996], [126.896, 37.57]]], "type": "Polygon"}, "properties": {"adm_nm": "\ubd81\uac00\uc88c2\ub3d9", "decline_score": 0.3939, "development_score": 0.0, "dong": "\ubd81\uac00\uc88c2\ub3d9", "obsolescence_score": 0.5092, "region_type": "\uc591\ud638\uc9c0\uc5ed", "source": "mock"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_4cb5ac954144fd443f068a0763d4e9b2.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["dong", "region_type", "obsolescence_score", "decline_score", "development_score"];
+    let aliases = ["\ud589\uc815\ub3d9", "\uc720\ud615", "\ub178\ud6c4\ub3c4", "\uc1e0\ud1f4\ub3c4", "\uac1c\ubc1c \ud604\ud669"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i].toLocaleString()}</th>
+            
+            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+    geo_json_4cb5ac954144fd443f068a0763d4e9b2.bindPopup(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["dong", "region_type", "obsolescence_score", "decline_score", "development_score"];
+    let aliases = ["\ud589\uc815\ub3d9", "\uc720\ud615", "\ub178\ud6c4\ub3c4", "\uc1e0\ud1f4\ub3c4", "\uac1c\ubc1c \ud604\ud669"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i].toLocaleString()}</th>
+            
+            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "className": "foliumpopup",
+});
+                     
+    
+            geo_json_4cb5ac954144fd443f068a0763d4e9b2.addTo(map_6b8887b43118b23355cc2f6677d19032);
+        
+    
+            var layer_control_9b300ef2ab91e4f00229228c2699b6dd_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_0eda8e14df6f8b690e7a40218b9e4abf,
+                },
+                overlays :  {
+                    "\uc11c\ub300\ubb38\uad6c \uc815\ube44 \uc720\ud615" : geo_json_4cb5ac954144fd443f068a0763d4e9b2,
+                },
+            };
+            let layer_control_9b300ef2ab91e4f00229228c2699b6dd = L.control.layers(
+                layer_control_9b300ef2ab91e4f00229228c2699b6dd_layers.base_layers,
+                layer_control_9b300ef2ab91e4f00229228c2699b6dd_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_6b8887b43118b23355cc2f6677d19032);
+
+        
+</script>
+</body>
+
+</html>
