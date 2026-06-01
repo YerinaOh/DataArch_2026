@@ -1,0 +1,15 @@
+﻿dong,obsolescence_score,decline_score,development_score,avg_building_age,ratio_over_30y,vacant_ratio,landscape_decline,stage_raw_score,project_count,data_source_building,data_source_vacant,data_source_landscape,data_source_redevelopment
+충정로2가동,3.5238,2.2031,5.0,41.2219,0.7216,0.7175,0.1554,5.0,5.0,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+충정로3가동,5.0,3.6224,0.0,52.8358,0.7372,0.752,0.2319,2.5,0.5,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+천연동,2.214,1.2484,4.2,45.1462,0.648,0.6238,0.1903,4.6,1.0,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+신촌동,2.8244,2.8869,5.0,38.9768,0.7005,0.6892,0.2473,5.0,0.5,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+연희동,1.7113,3.8478,4.2,36.7932,0.6611,0.6733,0.3471,4.6,2.0,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+홍제1동,2.708,2.3625,5.0,38.2374,0.6986,0.699,0.1914,5.0,1.3333,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+홍제2동,2.9175,2.469,5.0,38.4284,0.7069,0.7057,0.1921,5.0,1.3333,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+홍제3동,2.9175,2.469,5.0,38.4284,0.7069,0.7057,0.1921,5.0,1.3333,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+홍은1동,2.3818,1.9741,5.0,38.5086,0.6832,0.6871,0.1735,5.0,4.0,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+홍은2동,2.3818,1.9741,5.0,38.5086,0.6832,0.6871,0.1735,5.0,4.0,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+남가좌1동,0.0,0.2351,0.0,32.0672,0.6063,0.5813,0.1577,2.5,0.25,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+남가좌2동,0.0,0.2351,0.0,32.0672,0.6063,0.5813,0.1577,2.5,0.25,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+북가좌1동,0.5092,0.3939,0.0,33.7407,0.6215,0.6082,0.138,2.5,0.25,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
+북가좌2동,0.5092,0.3939,0.0,33.7407,0.6215,0.6082,0.138,2.5,0.25,api:BldRgstHub/getBrTitleInfo,proxy:building_register_residential_30y,api:vworld+building,api:CleanupBussinessProgress
